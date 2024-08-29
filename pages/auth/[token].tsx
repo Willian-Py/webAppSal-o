@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { redirect } from 'next/navigation';
 import * as _ from 'lodash'
+import { Box } from '@mui/material';
 
 interface IUser {
   success: boolean
@@ -80,15 +81,19 @@ export default function HomePage() {
           userData !== null ? 
 
           <>
-          <Image
+    <Image
         src={foto1}
-        width={300}
-        height={300}
+        style={{
+          width: '100%'
+        }}
+        height={400}
         alt="Picture of the author"
       /> 
+       <Box width={'100%'} justifyContent={'center'} alignItems={'center'}textAlign={'center'}>
       <h1>Bem Vindo (a),</h1>
       <h2>{userData?.data.name}</h2>
-      <Button variant="contained"  sx={{backgroundColor:'red'}} onClick={() =>  router.push(`/step/${token}`)}>Agendar Agora </Button>
+      <Button variant="contained"  sx={{backgroundColor:'#9f5746'}} onClick={() =>  router.push(`/step/${token}`)}>Agendar Agora </Button>
+      </Box>
           </>
           :
           <></>

@@ -343,7 +343,7 @@ export default function index() {
   const [serviceSelect, setServiceSelect] = useState<string>('')
   const [selectHour, setSelectHour] = useState<string>('');
   const [isLoading, setIsloading] = useState<boolean>(false)
-  const [openModal, setOpenModal] =useState<boolean>(false)
+  const [openModal, setOpenModal] =useState<boolean>(true)
 
   console.log(userData)
 
@@ -495,7 +495,7 @@ export default function index() {
       return res.json()
     }).then(res => {
       if (res.success === true) {
-          //  router.push(`/success/${userData?.data.id}`)
+          router.push(`/success/${userData?.data.id}`)
           setOpenModal(true)
       } else {
         router.push(`/error`)
@@ -537,30 +537,35 @@ export default function index() {
       width: '100%',
       height: '100%',
       border: '2px solid #808080',
+      position: 'relative'
     }}
     >
        <Box  sx={{
-      position: 'absolute' as 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+      // position: 'absolute' as 'absolute',
+      // top: '40%',
+      // left: '40%',
+      // transform: 'translate(-50%, -50%)',
       bgcolor: 'background.paper',
       border: '2px solid #808080',
       boxShadow: 24,
-      p: 4,
+      p: 3,
+      m: 3
 
   }}
   >
-    <Stack>
+
+    <Stack width={'100%'} justifyItems={'center'} alignItems={'center'}>
       <DoneAllIcon color='success' sx={{fontSize: 80}}/>
     </Stack>
-    <Typography id="modal-modal-description" sx={{ mt: 2, fontSize: 20 }}>
+    <Stack textAlign={'center'} width={'100%'} py={1}>
+    <Typography id="modal-modal-description" sx={{ mt: 2, fontSize: 16 }}>
       Seu horário foi reservado com Sucesso !!
     </Typography>
+    </Stack>
     <Box sx={{ width: '100%'}}>
     <Button
     variant="outlined"
-    onClick={() =>  router.push(`/finish`)}
+    onClick={() =>  router.push(`/finish/${userData?.data.name}`)}
     sx={{borderColor: '#9f5746', marginTop: 3, color: '#9f5746', width: '100%'}}
     >Sair</Button>
     </Box>
