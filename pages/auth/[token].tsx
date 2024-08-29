@@ -38,7 +38,7 @@ export default function HomePage() {
                 throw new Error('Token não fornecido');
             }
 
-            const response = await fetch('http://192.168.1.4:8000/jwt/verify', {
+            const response = await fetch('https://salaoapi.onrender.com/jwt/verify', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`

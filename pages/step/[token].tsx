@@ -430,7 +430,7 @@ export default function index() {
           throw new Error('Token não fornecido');
         }
 
-        const response = await fetch('http://192.168.1.4:8000/jwt/verify/', {
+        const response = await fetch('https://salaoapi.onrender.com/jwt/verify/', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -471,10 +471,10 @@ export default function index() {
     let dataDoCorte = moment(dateFormat).format('DD/MM/YYYY')
     let dataDoCorteDate = moment(dateFormat).format('YYYY-MM-DD')
 
-    // const apiUrl = "https://salaoapi.onrender.com";
+    const apiUrl = "https://salaoapi.onrender.com";
 
     
-    const apiUrl = "http://192.168.1.4:8000";
+    //const apiUrl = "http://192.168.1.4:8000";
 
     fetch(`${apiUrl}/agendamento/web`, {
       method: 'POST',
