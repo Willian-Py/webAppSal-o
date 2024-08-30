@@ -26,7 +26,7 @@ export default function Unauthorized() {
          <Box width={'100%'} justifyContent={'center'} alignItems={'center'}textAlign={'center'} p={4}>
           <ErrorOutlineIcon sx={{ fontSize: 160}} color='warning' />
          <h1 color='red' style={{ fontSize: 26}}>Seu Link expirou  ou já existe um agendamento para seu nome,</h1>
-         <h3 color='red'>Favor contatar o seu cabelereiro.</h3>
+         <h3 color='red'>Favor contatar o seu cabelereiro..</h3>
     </Box>
     </>
   )
