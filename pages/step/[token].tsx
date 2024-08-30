@@ -343,7 +343,8 @@ export default function index() {
   const [serviceSelect, setServiceSelect] = useState<string>('')
   const [selectHour, setSelectHour] = useState<string>('');
   const [isLoading, setIsloading] = useState<boolean>(false)
-  const [openModal, setOpenModal] =useState<boolean>(true)
+  const [openModal, setOpenModal] =useState<boolean>(false)
+  const [isLoadingAgendamento, setIsLoadingAgendamentol] =useState<boolean>(false)
 
   console.log(userData)
 
@@ -468,6 +469,7 @@ export default function index() {
   // "horaDoCorte":"10:00"
   const submitForm = () => {
 
+    setIsLoadingAgendamentol(true)
     let dataDoCorte = moment(dateFormat).format('DD/MM/YYYY')
     let dataDoCorteDate = moment(dateFormat).format('YYYY-MM-DD')
 
@@ -495,8 +497,9 @@ export default function index() {
       return res.json()
     }).then(res => {
       if (res.success === true) {
-          router.push(`/success/${userData?.data.id}`)
+          //router.push(`/success/${userData?.data.id}`)
           setOpenModal(true)
+          setIsLoadingAgendamentol(false)
       } else {
         router.push(`/error`)
         console.log(res)
@@ -664,7 +667,7 @@ export default function index() {
               disabled={
                 dateCSS === 0 || serviceId === "" || selectHour === '' ? true : false
               }
-              loading={isLoading}
+              loading={isLoadingAgendamento}
             >
               Finalizar
             </LoadingButton>
